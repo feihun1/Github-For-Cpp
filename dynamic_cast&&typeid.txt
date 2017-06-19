@@ -1,0 +1,24 @@
+Grand *pg;
+Superb *ps;
+for (int i=0;i<5;i++)
+{
+      pg=GetOne();
+      pg->Speak();
+      if (ps=dynamic_cast<Super *ps>(pg))
+            ps->Say();
+}
+
+equal to:
+
+Grand *pg;
+Superb *ps;
+for (int i=0;i<5;i++)
+{
+      pg=GetOne();
+      pg->Speak();
+      if (typeid(Superb)==typeid(*pg))
+      {
+            ps=(Superb *)pg;
+            ps->Say();
+      }
+}
